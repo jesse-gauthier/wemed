@@ -1,8 +1,7 @@
 <script setup></script>
 
 <template>
-  <main>
-    <h2>I am a authed dashboard</h2>
-    <p>Admin View</p>
+  <main class="">
+    <h2 class="text-white">Dashboard View</h2>
   </main>
 </template>

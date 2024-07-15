@@ -1,16 +1,12 @@
 <template>
   <header>
     <nav>
-      <ul>
-        <li v-if="user">User is authed</li>
+      <ul class="flex justify-evenly">
+        <li><router-link class="btn btn-primary" to="/dashboard">Home</router-link></li>
+        <li><router-link class="btn btn-primary" to="/appointments">Appointments</router-link></li>
+        <li><router-link class="btn btn-primary" to="/patient_list">Patient List</router-link></li>
+        <li><router-link class="btn btn-primary" to="/settings">Settings</router-link></li>
       </ul>
     </nav>
   </header>
 </template>
-
-<script setup>
-import useAuthStore from '../stores/Auth.js'
-import { ref } from 'vue'
-const Auth = useAuthStore()
-const user = ref(Auth.user)
-</script>

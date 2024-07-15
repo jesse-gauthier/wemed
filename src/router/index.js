@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashBoardView from '../views/DashBoardView.vue'
 import LoginView from '../views/LoginView.vue'
 import { useAuthStore } from '../stores/Auth'
+import AppointmentsView from '@/views/AppointmentsView.vue'
+import PatientsView from '@/views/PatientsView.vue'
+import SettingsView from '@/views/SettingsView.vue'
 
 const routes = [
   {
@@ -14,6 +17,21 @@ const routes = [
     path: '/',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/appointments',
+    name: 'Appointments',
+    component: AppointmentsView
+  },
+  {
+    path: '/patient_list',
+    name: 'PatientsView',
+    component: PatientsView
+  },
+  {
+    path: '/settings',
+    name: 'settings ',
+    component: SettingsView
   }
 ]
 
@@ -24,8 +42,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore()
-  // const isAuthenticated = await authStore.isAuthenticated()
-  const isAuthenticated = true
+  const isAuthenticated = await authStore.isAuthenticated()
 
   if (to.meta.requiresAuth && !isAuthenticated) {
     next({ path: '/' })
